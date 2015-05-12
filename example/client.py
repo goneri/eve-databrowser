@@ -69,9 +69,9 @@ def post_people():
         payload[person['lastname']] = json.dumps(person)
 
     r = perform_post('people', payload)
-    print "'people' posted"
-    print r.status_code
-    print r.json
+    print("'people' posted")
+    print(r.status_code)
+    print(r.json)
 
     valids = []
     if r.status_code == 200:
@@ -99,9 +99,9 @@ def post_works(ids):
     for i in range(len(works)):
         payload['work' + str(i + 1)] = json.dumps(works[i])
     r = perform_post('works', payload)
-    print "'works' posted"
-    print r.status_code
-    print r.json
+    print("'works' posted")
+    print(r.status_code)
+    print(r.json)
 
 
 def perform_post(resource, data):
@@ -110,11 +110,11 @@ def perform_post(resource, data):
 
 def delete():
     r = perform_delete('people')
-    print "'people' deleted"
-    print r.status_code
+    print("people' deleted")
+    print(r.status_code)
     r = perform_delete('works')
-    print "'works' deleted"
-    print r.status_code
+    print("'works' deleted")
+    print(r.status_code)
 
 
 def perform_delete(resource):
@@ -127,7 +127,7 @@ def endpoint(resource):
 
 def get():
     r = requests.get('http://eve-demo.herokuapp.com')
-    print r.json
+    print(r.json)
 
 if __name__ == '__main__':
     delete()
